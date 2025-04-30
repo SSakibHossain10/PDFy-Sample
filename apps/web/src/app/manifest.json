@@ -1,0 +1,107 @@
+{
+  "id": "com.pdfy.app",
+  "lang": "en-US",
+  "name": "PDFy",
+  "short_name": "PDFy",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "platform": "windows",
+      "label": "Screenshot of PDFy on Windows",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "platform": "android",
+      "label": "Screenshot of PDFy on Android",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Templates",
+      "short_name": "Templates",
+      "description": "View and use templates",
+      "url": "/templates",
+      "icons": [
+        {
+          "src": "/shortcuts-icon-templates.png",
+          "type": "image/png",
+          "sizes": "96x96",
+          "purpose": "monochrome"
+        }
+      ]
+    },
+    {
+      "name": "My documents",
+      "short_name": "My documents",
+      "description": "View and manage your PDFs",
+      "url": "/my-documents",
+      "icons": [
+        {
+          "src": "/shortcuts-icon-my-documents.png",
+          "type": "image/png",
+          "sizes": "96x96",
+          "purpose": "monochrome"
+        }
+      ]
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "description": "PDFy - The Ultimate PDF Editor! Edit, fill, sign, and design PDFs effortlessly!",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "dir": "ltr",
+  "orientation": "natural",
+  "theme_color": "#18383f",
+  "background_color": "#022f2e",
+  "file_handlers": [
+    {
+      "action": "/",
+      "accept": {
+        "application/pdf": [".pdf"]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/receive-files/",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "files": [
+        {
+          "name": "pdf",
+          "accept": ["application/pdf"]
+        }
+      ]
+    }
+  },
+  "launch_handler": {
+    "client_mode": "navigate-new"
+  },
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.pdfy.app",
+      "url": "https://play.google.com/store/apps/details?id=com.pdfy.app"
+    }
+  ]
+}

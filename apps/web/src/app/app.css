@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+body {
+  anchor-name: --layout;
+}
+
+@layer base {
+  :root {
+    --gradient-angle: 150deg;
+    --header-height: 48px;
+    /* --breakpoint-sm: 640px; */
+    @apply scheme-dark;
+  }
+  * {
+    @apply m-0 p-0 box-border transition-none;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-primary-200) 50%, transparent)
+      color-mix(in oklab, var(--color-primary-100) 5%, transparent);
+  }
+  :focus-visible {
+    @apply outline-primary-300 outline-1;
+  }
+  input:focus-visible {
+    @apply outline-none;
+  }
+  html {
+    @apply max-w-screen max-h-dvh overflow-hidden;
+  }
+  body {
+    @apply min-h-dvh h-screen w-svw overflow-hidden;
+    color: var(--color-primary-300);
+    background-color: var(--color-black-950);
+  }
+  button {
+    @apply text-start cursor-pointer;
+    &:disabled {
+      @apply cursor-not-allowed;
+    }
+  }
+  [role="button"] {
+    @apply cursor-pointer;
+  }
+  dialog {
+    @apply bg-transparent text-primary-300;
+  }
+  input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+  }
+  /* For Chrome, Edge, and Safari */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  } /* For Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  /* #TO-REMOVE: maybe will not needed */
+  input {
+    &[type="radio"],
+    &[type="checkbox"],
+    &[type="range"] {
+      accent-color: var(--color-primary-200);
+    }
+    &[type="checkbox"] {
+      @apply appearance-none border rounded-[2px] size-3;
+    }
+    &[type="checkbox"]:checked {
+      @apply appearance-auto;
+    }
+    /* # range input */
+    &[type="range"] {
+      @apply appearance-none h-1 bg-primary-200/20 rounded-xl;
+      &::-webkit-slider-thumb {
+        background-clip: padding-box;
+        box-sizing: content-box;
+        @apply appearance-none size-1 mb-4.5 bg-primary-200/90 sx:outline-8 outline-primary-100/30 sx:border-none sm:border-8 border-primary-100/30 rounded-full cursor-pointer;
+      }
+      /* for mozila */
+      &::-moz-range-track {
+        background-clip: padding-box;
+        box-sizing: content-box;
+        @apply appearance-none size-1 mb-4.5 bg-primary-200/90 sx:outline-8 outline-primary-100/30 sx:border-none sm:border-8 border-primary-100/30 rounded-full cursor-pointer;
+      }
+    }
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  h5 {
+    @apply text-base;
+  }
+  h6 {
+    @apply text-sm;
+  }
+  p {
+    @apply text-xs;
+  }
+  span {
+    @apply text-2xs;
+  }
+  small {
+    @apply text-2xs;
+  }
+  *,
+  ::before,
+  ::after {
+    @apply border-primary-300;
+  }
+  [popover] {
+    @apply fixed inset-auto bg-transparent text-primary-300 overflow-visible;
+  }
+}
+
+/* #utilities */
+@utility scrollbar-hidden {
+  /* For WebKit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* For Internet Explorer, Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+}
+@utility text-2xs {
+  font-size: 8px;
+  line-height: 10px;
+}
+/* #popover */
+@utility popover-animation-transation {
+  @apply transition-[translate,opacity] ease-out duration-100 sm:duration-300;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+@utility popover-animation-translate-from-left {
+  @apply -translate-x-full popover-animation-transation;
+
+  &:popover-open {
+    @apply translate-x-0;
+
+    @starting-style {
+      @apply -translate-x-full;
+    }
+  }
+}
+@utility popover-animation-translate-from-right {
+  @apply translate-x-full popover-animation-transation;
+
+  &:popover-open {
+    @apply translate-x-0;
+
+    @starting-style {
+      @apply translate-x-full;
+    }
+  }
+}
+@utility popover-animation-translate-from-bottom {
+  @apply translate-y-full popover-animation-transation;
+
+  &:popover-open {
+    @apply translate-y-0;
+
+    @starting-style {
+      @apply translate-y-full;
+    }
+  }
+}
+@utility popover-animation-translate-from-top {
+  @apply -translate-y-full popover-animation-transation;
+
+  &:popover-open {
+    @apply translate-y-0;
+
+    @starting-style {
+      @apply -translate-y-full;
+    }
+  }
+}
+@utility popover-animation-opacity {
+  @apply opacity-0 popover-animation-transation duration-300 sm:duration-500;
+
+  &:popover-open {
+    @apply opacity-100;
+
+    @starting-style {
+      @apply opacity-0;
+    }
+  }
+}
+@utility minus-input-arrow-inicator-space {
+  &::-webkit-calendar-picker-indicator {
+    margin-left: -12px;
+  }
+}
+
+@utility search-close-button-hidden {
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+  appearance: none;
+}
+
+@layer components {
+  /* # tooltip */
+  @media (width >= theme(--breakpoint-sm)) {
+    .tooltip {
+      @apply visible z-10 opacity-100;
+    }
+  }
+
+  .popover-sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/* .animate-performance-test {
+  animation: jump 1s linear infinite !important;
+}
+
+@keyframes jump {
+  0% {
+    margin-bottom: 500px;
+  }
+  100% {
+    margin-bottom: 0px;
+  }
+} */

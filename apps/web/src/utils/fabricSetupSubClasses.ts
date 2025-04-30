@@ -1,0 +1,42 @@
+import CanvasAudio from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasAudio";
+import CanvasCircle from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasCircle";
+import CanvasGroup from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasGroup";
+import CanvasImage from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasImage";
+import CanvasIText from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasIText";
+import CanvasLine from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasLine";
+import CanvasMarkerDrawingPath from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasMarkerDrawingPath";
+import CanvasPath from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasPath";
+import { default as CanvasPencilDrawingPath } from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasPencilDrawingPath";
+import CanvasRect from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasRect";
+import CanvasSignatureText from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasSignatureText";
+import CanvasTextbox from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasTextbox";
+import CanvasVideo from "@/app/[locale]/(authorized)/document/[documentId]/classes/CanvasVideo";
+import CanvasFeildCheckbox from "@/app/[locale]/(authorized)/document/[documentId]/classes/form/CanvasFeildCheckbox";
+import CanvasFeildInput from "@/app/[locale]/(authorized)/document/[documentId]/classes/form/CanvasFeildInput";
+import CanvasFeildRadio from "@/app/[locale]/(authorized)/document/[documentId]/classes/form/CanvasFeildRadio";
+import CanvasFeildSelect from "@/app/[locale]/(authorized)/document/[documentId]/classes/form/CanvasFeildSelect";
+import CanvasFeildSelectMultiple from "@/app/[locale]/(authorized)/document/[documentId]/classes/form/CanvasFeildSelectMultiple";
+import CanvasFeildTextarea from "@/app/[locale]/(authorized)/document/[documentId]/classes/form/CanvasFeildTextarea";
+import { classRegistry } from "fabric";
+
+export default function registerFabricClasses() {
+  classRegistry.setClass(CanvasRect, "canvas-rect");
+  classRegistry.setClass(CanvasPath, "canvas-path");
+  classRegistry.setClass(CanvasPencilDrawingPath, "canvas-pencil-drawing-path");
+  classRegistry.setClass(CanvasMarkerDrawingPath, "canvas-marker-drawing-path");
+  classRegistry.setClass(CanvasIText, "canvas-i-text");
+  classRegistry.setClass(CanvasTextbox, "canvas-textbox");
+  classRegistry.setClass(CanvasSignatureText, "canvas-signature-text");
+  classRegistry.setClass(CanvasImage, "canvas-image");
+  classRegistry.setClass(CanvasVideo, "canvas-video");
+  classRegistry.setClass(CanvasAudio, "canvas-audio");
+  classRegistry.setClass(CanvasCircle, "canvas-circle");
+  classRegistry.setClass(CanvasLine, "canvas-line");
+  classRegistry.setClass(CanvasGroup, "canvas-group");
+  classRegistry.setClass(CanvasFeildInput, "canvas-field-input");
+  classRegistry.setClass(CanvasFeildTextarea, "canvas-field-textarea");
+  classRegistry.setClass(CanvasFeildSelect, "canvas-field-select");
+  classRegistry.setClass(CanvasFeildSelectMultiple, "canvas-field-select-multiple");
+  classRegistry.setClass(CanvasFeildRadio, "canvas-field-radio");
+  classRegistry.setClass(CanvasFeildCheckbox, "canvas-field-checkbox");
+}

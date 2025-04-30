@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "prefer-rest-params": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "prefer-spread": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
+  }
+}

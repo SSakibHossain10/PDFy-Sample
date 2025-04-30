@@ -1,0 +1,6 @@
+{
+  "prettier.printWidth": 120,
+  "search.exclude": {
+    "**/.next": true
+  }
+}

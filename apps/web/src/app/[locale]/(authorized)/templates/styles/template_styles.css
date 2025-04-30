@@ -1,0 +1,36 @@
+#template-page,
+#template-slot,
+#dashboard-page {
+  scroll-timeline: --scrollTimeline y;
+  scroll-timeline: --scrollTimeline vertical; /* Firefox supports the older "vertical" syntax */
+}
+
+#template-search-input {
+  animation-name: changeSearchInputBgAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-timeline: --scrollTimeline;
+  animation-range: 100px 100%;
+}
+
+@keyframes changeSearchInputBgAnimation {
+  from {
+    background-image: linear-gradient(
+      var(--gradient-angle),
+      rgb(0 11 47 / 95%),
+      rgb(0 45 39 / 95%),
+      rgb(0 8 34 / 95%),
+      rgb(0 48 46 / 95%)
+    );
+  }
+
+  to {
+    margin-inline: 50px;
+    background-image: linear-gradient(
+      var(--gradient-angle),
+      rgb(0 11 47 / 90%),
+      rgb(0 45 39 / 90%),
+      rgb(0 8 34 / 90%),
+      rgb(0 48 46 / 90%)
+    );
+  }
+}

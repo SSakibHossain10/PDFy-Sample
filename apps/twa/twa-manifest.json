@@ -1,0 +1,70 @@
+{
+  "packageId": "com.pdfy.app",
+  "host": "pdfy-online.vercel.app",
+  "name": "PDFy",
+  "launcherName": "PDFy",
+  "display": "standalone",
+  "themeColor": "#18383F",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#022F2E",
+  "enableNotifications": true,
+  "startUrl": "/dashboard",
+  "iconUrl": "https://pdfy-online.vercel.app/icon-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "D:\\Sakib\\Programming\\Projects\\pdf-editor\\pdf-eitor-project-monorepo\\apps\\twa\\android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1.0.0-open-testing",
+  "appVersionCode": 11,
+  "shortcuts": [
+    {
+      "name": "Templates",
+      "shortName": "Templates",
+      "url": "https://pdfy-online.vercel.app/templates",
+      "chosenMonochromeIconUrl": "https://pdfy-online.vercel.app/shortcuts-icon-templates.png"
+    },
+    {
+      "name": "My documents",
+      "shortName": "My documents",
+      "url": "https://pdfy-online.vercel.app/my-documents",
+      "chosenMonochromeIconUrl": "https://pdfy-online.vercel.app/shortcuts-icon-my-documents.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://pdfy-online.vercel.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://pdfy-online.vercel.app/",
+  "minSdkVersion": 21,
+  "shareTarget": {
+    "action": "https://pdfy-online.vercel.app/receive-files/",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "files": [
+        {
+          "name": "pdf",
+          "accept": [
+            "application/pdf"
+          ]
+        }
+      ]
+    }
+  },
+  "orientation": "natural",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "1.0.0-open-testing"
+}

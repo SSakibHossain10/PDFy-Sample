@@ -1,0 +1,46 @@
+{
+  "name": "pdfy-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "d": "next dev",
+    "b": "next build & next start",
+    "dev": "next dev --experimental-https",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.0",
+    "pdfjs-dist-custom": "file:./libs/pdf.js",
+    "fabric": "^6.6.1",
+    "pdfkit": "^0.16.0",
+    "mongoose": "^8.8.3",
+    "next-auth": "^4.24.11",
+    "next-international": "^1.3.1",
+    "nextjs-toploader": "^3.7.15",
+    "lodash": "^4.17.21",
+    "blob-stream": "^0.1.3",
+    "@aws-sdk/client-s3": "^3.744.0",
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.14",
+    "@tailwindcss/postcss": "^4.0.14",
+    "@svgr/webpack": "^8.1.0",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^8",
+    "eslint-config-next": "15.1.0",
+    "react-icons": "^5.4.0",
+    "tailwind-merge": "^2.5.5",
+    "typescript": "^5",
+    "@types/pdfkit": "^0.13.9",
+    "@types/blob-stream": "^0.1.33"
+  }
+}

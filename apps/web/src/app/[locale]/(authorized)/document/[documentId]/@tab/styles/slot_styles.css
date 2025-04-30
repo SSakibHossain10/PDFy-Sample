@@ -1,0 +1,36 @@
+/* bottom toolmenu */
+#editor-page-layout:has(#template-slot) {
+  #template-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}
+#editor-page-layout:has(#text-slot) {
+  #text-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}
+#editor-page-layout:has(#element-slot) {
+  #element-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}
+#editor-page-layout:has(#media-slot) {
+  #media-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}
+#editor-page-layout:has(#form-slot) {
+  #form-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}
+#editor-page-layout:has(#drawing-slot) {
+  #drawing-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}
+#editor-page-layout:has(#signature-slot) {
+  #signature-slot-nav-button {
+    background-color: color-mix(in oklab, var(--color-primary-100) 10%, transparent);
+  }
+}

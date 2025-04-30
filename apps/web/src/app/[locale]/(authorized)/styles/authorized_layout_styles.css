@@ -1,0 +1,49 @@
+body:has(#editor-page-layout) {
+  #authorized-layout-header,
+  #authorized-layout-footer {
+    display: none; /* Hide the default header and footer for editor page */
+  }
+}
+
+body:has(#dashboard-page) {
+  #dashboard-page-nav-button {
+    @apply h-1 opacity-100;
+  }
+}
+body:has(#template-page) {
+  #template-page-nav {
+    @apply bg-forground/10;
+  }
+  #template-page-nav-button {
+    @apply h-1 opacity-100;
+  }
+}
+body:has(#my-documents-page) {
+  #my-documents-page-nav {
+    @apply bg-forground/10;
+  }
+  #my-documents-page-nav-button {
+    @apply h-1 opacity-100;
+  }
+}
+body:has(#account-page) {
+  #account-page-nav {
+    @apply bg-forground/10;
+  }
+  #account-page-nav-button {
+    @apply h-1 opacity-100;
+  }
+}
+
+.pdf-parse-progress-bar {
+  animation: progress-animation 1s linear infinite;
+}
+
+@keyframes progress-animation {
+  0% {
+    transform: translateX(-100%); /* Move off-screen left */
+  }
+  100% {
+    transform: translateX(200%); /* Start off-screen right */
+  }
+}

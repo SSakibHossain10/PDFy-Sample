@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pdfy.app",
+      "sha256_cert_fingerprints": [
+        "A7:7E:F3:63:96:73:5A:66:B6:CD:84:5C:E4:02:91:AF:1B:BC:F6:A6:8E:C7:1F:27:11:CC:91:A0:92:BA:75:3B",
+        "8E:D6:26:E2:EC:BA:27:21:EF:79:E0:EA:7F:90:B5:8B:99:F1:F5:35:AF:22:03:C4:A0:40:91:09:1F:5E:A0:7A"
+      ]
+    }
+  }
+]

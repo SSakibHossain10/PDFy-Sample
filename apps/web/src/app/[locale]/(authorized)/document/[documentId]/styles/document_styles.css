@@ -1,0 +1,346 @@
+:root {
+  --header-height: 44px;
+  --layout-top-bar: 44px;
+  --layout-bottom-bar: 52px;
+  --layout-tool-menu-width: 58px;
+  --layout-primary-toolbar-height: 42px;
+  --layout-tab-width: 300px;
+  --layout-tab-height: 0px;
+  --organize-pages-panel-width: 256px;
+  --background-quick-popover-height: 52px;
+  --fill-quick-popover-height: 52px;
+  --stroke-quick-popover-height: 52px;
+  --nudge-bar-popover-height: 56px;
+  --font-size-bar-popover-height: 104px;
+  --text-spacing-bar-popover-height: 164px;
+  --border-style-popover-height: 146px;
+  --opacitybar-popover-height: 108px;
+  --more-panel-popover-height: 280px;
+  --page-zoom-factor: 1;
+}
+
+#document-pages-wrapper {
+  scrollbar-color: color-mix(in oklab, var(--color-primary-200) 50%, transparent) transparent;
+  &[data-panning="true"] {
+    /* panning cursor */
+    .upper-canvas {
+      cursor: grabbing !important;
+    }
+  }
+}
+/* padding top for primary toolbar popover */
+@media (width >= 640px) {
+  .primary-toolbar-popover {
+    &:popover-open ~ div > #document-pages-wrapper {
+      padding-top: var(--layout-primary-toolbar-height);
+    }
+  }
+}
+
+/* tab-layout desktop */
+@media (width >= 640px) {
+  .document-tab-layout {
+    height: 100% !important;
+    max-height: 100% !important;
+  }
+}
+/* drawing-tab */
+#editor-page-layout {
+  &:has(#drawing-slot) {
+    @media (width < 640px) {
+      .canvas-page-wapper {
+        padding-bottom: 48px;
+      }
+    }
+    @media (width >= 640px) {
+      .document-tab-layout {
+        width: 0px;
+      }
+      .canvas-page-wapper {
+        padding-left: 52px;
+      }
+    }
+  }
+}
+
+/* canvas container default styles */
+.canvas-container {
+  height: unset !important;
+  width: unset !important;
+  scale: var(--page-zoom-factor);
+}
+
+/* for mobile */
+@media (width < 640px) {
+  /* height adjust for tab */
+  .canvas-container {
+    max-width: 100dvw;
+    max-height: calc(100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) - var(--layout-tab-height));
+  }
+  .organize-pages-panel-popover {
+    content-visibility: hidden; /* skip height computation on popover hidden // for performance */
+    &:popover-open {
+      content-visibility: auto;
+    }
+  }
+  /* 
+  /* #canvas & organize-pages height adjust for popovers*/
+  /* font-size */
+  #editor-page-layout:has(.font-size-bar-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--font-size-bar-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--font-size-bar-popover-height)) - 8px
+      );
+    }
+  }
+  /* text-spacing */
+  #editor-page-layout:has(.text-spacing-bar-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--text-spacing-bar-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--text-spacing-bar-popover-height)) - 8px
+      );
+    }
+  }
+  /* field-settings */
+  #editor-page-layout:has(.field-settings-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--field-settings-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--field-settings-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* background-quick */
+  #editor-page-layout:has(.background-quick-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--background-quick-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--background-quick-popover-height)) - 8px
+      );
+    }
+  }
+  /* background-panel */
+  #editor-page-layout:has(.background-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(
+        var(--background-panel-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar)
+      );
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--background-panel-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* fill-quick */
+  #editor-page-layout:has(.fill-quick-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--fill-quick-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--fill-quick-popover-height)) - 8px
+      );
+    }
+  }
+  /* fill-panel */
+  #editor-page-layout:has(.fill-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--fill-panel-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--fill-panel-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* stroke-quick */
+  #editor-page-layout:has(.stroke-quick-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--stroke-quick-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--stroke-quick-popover-height)) - 8px
+      );
+    }
+  }
+  /* stroke-panel */
+  #editor-page-layout:has(.stroke-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--stroke-panel-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--stroke-panel-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* nudge-bar */
+  #editor-page-layout:has(.nudge-bar-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--nudge-bar-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--nudge-bar-popover-height)) - 8px
+      );
+    }
+  }
+  /* opacitybar */
+  #editor-page-layout:has(.opacitybar-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--opacitybar-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--opacitybar-popover-height)) - 8px
+      );
+    }
+  }
+  /* border-style */
+  #editor-page-layout:has(.border-style-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--border-style-popover-height) - var(--layout-tab-height));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), var(--border-style-popover-height)) - 8px
+      );
+    }
+  }
+  /* font-family */
+  #editor-page-layout:has(.font-family-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--font-family-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--font-family-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* layer-panel */
+  #editor-page-layout:has(.layer-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--layer-panel-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--layer-panel-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* position-panel */
+  #editor-page-layout:has(.position-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--position-panel-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--position-panel-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+  }
+  /* more-panel */
+  #editor-page-layout:has(.more-panel-popover:popover-open) {
+    .canvas-page-wapper {
+      padding-bottom: calc(var(--more-panel-popover-height) - var(--layout-tab-height) - var(--layout-bottom-bar));
+    }
+    .organize-pages-panel-popover {
+      height: calc(
+        100dvh - var(--layout-top-bar) - var(--layout-bottom-bar) -
+          max(var(--layout-tab-height), calc(var(--more-panel-popover-height) - var(--layout-bottom-bar))) - 8px
+      );
+    }
+    .object-top-actions-menu {
+      visibility: hidden;
+    }
+  }
+}
+
+/* for desktop */
+@media (width >= 640px) {
+  /* width adjust for tab */
+  .canvas-container {
+    --canvas-max-width-based-tab-left-right-toolbar: calc(
+      100dvw - var(--layout-tab-width) - var(--layout-tool-menu-width)
+    );
+    --canvas-max-width: var(--canvas-max-width-based-tab-left-right-toolbar);
+    max-width: var(--canvas-max-width);
+    max-height: calc(100dvh - var(--layout-top-bar));
+  }
+  .primary-toolbar-popover {
+    margin-left: calc(var(--layout-tab-width) + var(--layout-tool-menu-width));
+  }
+  /* #width adjust for popovers*/
+  #editor-page-layout:has(
+      .field-settings-popover:popover-open,
+      .font-family-panel-popover:popover-open,
+      .background-panel-popover:popover-open,
+      .fill-panel-popover:popover-open,
+      .stroke-panel-popover:popover-open,
+      .position-panel-popover:popover-open,
+      .layer-panel-popover:popover-open
+    ) {
+    --left-popover-width: 358px;
+    #document-pages-wrapper {
+      --left-area-space-width: calc(
+        var(--left-popover-width) - var(--layout-tab-width) - var(--layout-tool-menu-width)
+      );
+      margin-left: var(--left-area-space-width);
+    }
+    .canvas-container {
+      --canvas-max-width-popover-width: calc(100dvw - var(--left-popover-width));
+      --canvas-max-width: min(
+        var(--canvas-max-width-popover-width),
+        var(--canvas-max-width-based-tab-left-right-toolbar)
+      );
+      max-width: var(--canvas-max-width);
+    }
+    .primary-toolbar-popover {
+      margin-left: max(calc(var(--layout-tab-width) + var(--layout-tool-menu-width)), var(--left-popover-width));
+    }
+  }
+  /* organize pages height */
+  .organize-pages-panel-popover {
+    height: calc(100dvh - var(--layout-top-bar));
+  }
+  /* organize pages panel popover space */
+  #editor-page-layout:has(.organize-pages-panel-popover:popover-open) {
+    #document-pages-wrapper {
+      margin-right: min(var(--organize-pages-panel-width), 60vw);
+    }
+    .canvas-container {
+      max-width: calc(var(--canvas-max-width) - min(var(--organize-pages-panel-width), 60vw));
+    }
+    .primary-toolbar-popover {
+      margin-right: min(var(--organize-pages-panel-width), 60vw);
+    }
+  }
+}

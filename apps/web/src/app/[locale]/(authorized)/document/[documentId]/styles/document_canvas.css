@@ -1,0 +1,85 @@
+.document-canvas-form-container,
+.document-canvas-text-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.canvas-hidden-field {
+  position: absolute;
+  transform-origin: left top;
+  pointer-events: all;
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+  border: none;
+  outline: none;
+  z-index: -1;
+  opacity: 0;
+  caret-color: var(--color-primary-300);
+  line-height: 1.3456;
+  resize: none;
+  overflow: hidden;
+
+  &.field-type-select,
+  &.field-type-select-multiple {
+    & > option {
+      background-color: var(--color-white);
+      color: var(--color-gray-900);
+    }
+  }
+  &.field-type-select-multiple {
+    overflow: auto;
+    /* For WebKit browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+      display: block;
+    }
+    /* For Internet Explorer, Edge */
+    -ms-overflow-style: block;
+    /* For Firefox */
+    scrollbar-width: 10px;
+
+    & > option {
+      cursor: pointer;
+    }
+
+    & > option:is(:checked) {
+      background-color: var(--color-gray-300);
+    }
+  }
+
+  &::selection {
+    background-color: color-mix(in oklab, var(--color-primary-500) 30%, transparent);
+    color: transparent;
+  }
+}
+
+.canvas-text-hidden-field {
+  position: absolute;
+  transform-origin: left top;
+  pointer-events: all;
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+  border: none;
+  outline: none;
+  z-index: -1;
+  opacity: 0;
+  caret-color: var(--color-primary-300);
+  line-height: 1.3456;
+  resize: none;
+  overflow: hidden;
+  /* For WebKit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* For Internet Explorer, Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+
+  &::selection {
+    background-color: color-mix(in oklab, var(--color-primary-500) 30%, transparent);
+    color: transparent;
+  }
+}
