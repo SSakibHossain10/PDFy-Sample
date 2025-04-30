@@ -1,32 +1,54 @@
-# Turborepo react-native starter
+# PDFy-Sample
 
-This is a community-maintained example. If you experience a problem, please submit a pull request with a fix. GitHub Issues will be closed.
+> ⚠️ This is not the full source code of PDFy. This is a **lightweight, stripped-down version** of the original PDFy project, shared for **code review and demonstration purposes only**.
 
-## Using this example
+---
 
-Run the following command:
+## 🧩 What is PDFy?
 
-```sh
-npx create-turbo@latest -e with-react-native-web
-```
+**PDFy** is a feature-rich PDF editor built with **Next.js**, integrating technologies like **PDF.js**, **Fabric.js**, and **PDFKit** to provide a modern, browser-based PDF editing experience.
 
-## What's inside?
+From editing text and images to drawing, signing, and form-filling—PDFy brings powerful desktop-style PDF editing directly to the web.
 
-This Turborepo includes the following packages/apps:
+### 🔧 Technologies Used in the Full Version
 
-### Apps and Packages
+- **Next.js (App Router)** – full-stack framework
+- **MongoDB + Mongoose** – database
+- **Tailwind CSS** – styling
+- **PDF.js** – for parsing PDF documents
+- **Fabric.js** – for canvas-based editing
+- **PDFKit** – for exporting final PDFs
+- **NextAuth.js** – authentication
+- **AWS S3** – media upload
+- **Vercel** – deployment
 
-- `native`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/)
-- `web`: a [Next.js](https://nextjs.org/) app built with [react-native-web](https://necolas.github.io/react-native-web/)
-- `@repo/ui`: a stub [react-native](https://reactnative.dev/) component library shared by both `web` and `native` applications
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+---
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 📦 About This Repository
 
-### Utilities
+This repository (`PDFy-Sample`) is a **partial version** of the actual PDFy source code. Many internal modules have been removed or redacted to protect proprietary logic and sensitive implementations. However, selected portions of the codebase have been retained and cleaned up to provide insight into:
 
-This Turborepo has some additional tools already setup for you:
+- Project structure & folder architecture
+- Core logic examples (e.g., canvas integration, editing tools)
+- Backend and API handling style
+- Component design & Next.js conventions
 
-- [Expo](https://docs.expo.dev/) for native development
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Prettier](https://prettier.io) for code formatting
+It’s intended **for reviewers only**—to demonstrate my coding style, architectural thinking, and use of modern web technologies.
+
+---
+
+## 🧑‍💻 My Role in PDFy
+
+As the sole developer, I handled the entire lifecycle:
+
+- Architecture & UI/UX design
+- Frontend & Backend development
+- TWA build for Android
+- Performance optimization
+- Deployment & testing
+
+---
+
+## 💡 Want to Know More?
+
+Check out the full project details in my [portfolio](https://ssakibhossain10.vercel.app/#project-pdfy).
